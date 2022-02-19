@@ -6,4 +6,8 @@ public interface McmeCommandSender {
 
     void sendMessage(BaseComponent[] message);
 
+    default void sendMessage(String message) {}
+
+    default void sendError(String message) {}
+
 }
