@@ -154,11 +154,7 @@ public abstract class AbstractCommandHandler {
             }
             List<Suggestion> completionSuggestions
                     = commandDispatcher.getCompletionSuggestions(result).get().getList();
-            if(completionSuggestions.isEmpty()) {
-                request.setCancelled(true);
-            } else {
-                request.getSuggestions().addAll(completionSuggestions.stream().map(Suggestion::getText).collect(Collectors.toList()));
-            }
+            request.getSuggestions().addAll(completionSuggestions.stream().map(Suggestion::getText).collect(Collectors.toList()));
         } catch (InterruptedException | ExecutionException e) {
             request.getSender().sendMessage(new ComponentBuilder("Command tab complete error."+e).color(Style.ERROR).create());
         }
