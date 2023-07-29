@@ -1,8 +1,11 @@
-package com.mcmiddleearth.command;
+package com.mcmiddleearth.command.handler;
 
 import com.google.common.base.Joiner;
+import com.mcmiddleearth.command.Style;
+import com.mcmiddleearth.command.TabCompleteRequest;
 import com.mcmiddleearth.command.builder.HelpfulLiteralBuilder;
 import com.mcmiddleearth.command.node.HelpfulNode;
+import com.mcmiddleearth.command.sender.McmeCommandSender;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.ParseResults;
 import com.mojang.brigadier.context.ParsedCommandNode;
@@ -24,7 +27,7 @@ public abstract class AbstractCommandHandler {
 
     private final CommandDispatcher<McmeCommandSender> commandDispatcher = new CommandDispatcher<>();
 
-    String command;
+    private final String command;
 
     public AbstractCommandHandler(String command)
     {
@@ -41,6 +44,10 @@ public abstract class AbstractCommandHandler {
     protected abstract HelpfulLiteralBuilder createCommandTree(HelpfulLiteralBuilder baseCommandNodeBuilder);
 
     public CommandDispatcher<McmeCommandSender> getCommandDispatcher() { return commandDispatcher; }
+
+    public String getCommand() {
+        return command;
+    }
 
     public void execute(McmeCommandSender sender, String[] args) {
         execute(sender, command, args);
