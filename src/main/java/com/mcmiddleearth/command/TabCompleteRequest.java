@@ -1,5 +1,7 @@
 package com.mcmiddleearth.command;
 
+import com.mcmiddleearth.command.sender.McmeCommandSender;
+
 import java.util.List;
 
 public interface TabCompleteRequest {

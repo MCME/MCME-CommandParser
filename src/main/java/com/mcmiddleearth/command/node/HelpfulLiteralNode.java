@@ -1,6 +1,6 @@
 package com.mcmiddleearth.command.node;
 
-import com.mcmiddleearth.command.McmeCommandSender;
+import com.mcmiddleearth.command.sender.McmeCommandSender;
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.LiteralMessage;
 import com.mojang.brigadier.RedirectModifier;

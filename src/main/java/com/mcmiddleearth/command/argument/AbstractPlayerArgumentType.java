@@ -16,54 +16,28 @@
  */
 package com.mcmiddleearth.command.argument;
 
-import com.mojang.brigadier.LiteralMessage;
-import com.mojang.brigadier.StringReader;
-import com.mojang.brigadier.arguments.ArgumentType;
-import com.mojang.brigadier.context.CommandContext;
-import com.mojang.brigadier.exceptions.CommandSyntaxException;
-import com.mojang.brigadier.suggestion.Suggestions;
-import com.mojang.brigadier.suggestion.SuggestionsBuilder;
-
 import java.util.Collection;
 import java.util.Collections;
-import java.util.concurrent.CompletableFuture;
 
 /**
  * @author Eriol_Eandur
  */
 
-public abstract class AbstractPlayerArgumentType implements ArgumentType<String>, HelpfulArgumentType {
+public abstract class AbstractPlayerArgumentType extends AbstractSuggestionListArgumentType {
 
-    private String tooltip;
-
-    @Override
-    public String parse(StringReader reader) throws CommandSyntaxException {
-        return reader.readUnquotedString();
+    public AbstractPlayerArgumentType() {
+        setTooltip("any player");
     }
 
     @Override
     public Collection<String> getExamples() {
-        return Collections.singletonList("any_player_name");
-    }
-
-    @Override
-    public <S> CompletableFuture<Suggestions> listSuggestions(final CommandContext<S> context, final SuggestionsBuilder builder) {
-        for (String option : getPlayerSuggestions()) {
-            if (option.toLowerCase().startsWith(builder.getRemaining().toLowerCase())) {
-                if(tooltip == null) {
-                    builder.suggest(option);
-                } else {
-                    builder.suggest(option, new LiteralMessage(tooltip));
-                }
-            }
-        }
-        return builder.buildFuture();
+        return Collections.singletonList("Eriol_Eandur");
     }
 
     protected abstract Collection<String> getPlayerSuggestions();
 
     @Override
-    public void setTooltip(String tooltip) {
-        this.tooltip = tooltip;
+    protected Collection<String> getSuggestions() {
+        return getPlayerSuggestions();
     }
 }

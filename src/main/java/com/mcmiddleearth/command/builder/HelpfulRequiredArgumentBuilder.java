@@ -1,6 +1,6 @@
 package com.mcmiddleearth.command.builder;
 
-import com.mcmiddleearth.command.McmeCommandSender;
+import com.mcmiddleearth.command.sender.McmeCommandSender;
 import com.mcmiddleearth.command.argument.HelpfulArgumentType;
 import com.mcmiddleearth.command.node.HelpfulArgumentNode;
 import com.mojang.brigadier.arguments.ArgumentType;
