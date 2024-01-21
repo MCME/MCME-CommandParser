@@ -19,4 +19,8 @@ public class BukkitPlayer implements McmeCommandSender {
     public void sendMessage(BaseComponent... message) {
         player.sendMessage(message);
     }
+
+    public Player getPlayer() {
+        return player;
+    }
 }

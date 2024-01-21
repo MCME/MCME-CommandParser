@@ -23,7 +23,7 @@ import java.util.Collections;
  * @author Eriol_Eandur
  */
 
-public abstract class AbstractPlayerArgumentType extends AbstractSuggestionListArgumentType {
+public abstract class AbstractPlayerArgumentType extends AbstractStringSuggestionListArgumentType {
 
     public AbstractPlayerArgumentType() {
         setTooltip("any player");

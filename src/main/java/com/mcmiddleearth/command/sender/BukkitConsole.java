@@ -19,4 +19,8 @@ public class BukkitConsole implements McmeCommandSender {
     public void sendMessage(BaseComponent[] message) {
         console.sendMessage(message);
     }
+
+    public ConsoleCommandSender getConsole() {
+        return console;
+    }
 }

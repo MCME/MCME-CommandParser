@@ -12,14 +12,9 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.concurrent.CompletableFuture;
 
-public abstract class AbstractSuggestionListArgumentType implements ArgumentType<String>, HelpfulArgumentType {
+public abstract class AbstractSuggestionListArgumentType <T> implements ArgumentType<T>, HelpfulArgumentType {
 
     private String tooltip = "Choose an item from list.";
-
-    @Override
-    public String parse(StringReader reader) throws CommandSyntaxException {
-        return reader.readUnquotedString();
-    }
 
     @Override
     public Collection<String> getExamples() {
